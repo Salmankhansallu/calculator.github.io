@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
+    <script src="jquery.js" ></script>
+    
+    <style>
+        .my{
+            height:490px;
+            width:330px;
+            margin:50px 200px;
+            border:2px solid black;
+            padding:60px;
+            background-color: antiquewhite;
+        }
+        .display{
+            padding: 0 6px;
+        
+        }
+        #clear{
+            width:150px;
+        }
+         input{
+            height:50px;
+            width:100px;
+            font-size: 20px;
+            background-color: aqua;
+            border: none;
+             
+        }
+        
+        input[type=button]{
+            border: 2px solid black;
+            border-radius: 60px;
+        }
+        
+        input[type='text']{
+            display: flex;
+            justify-content: flex-end;
+            background: #2c3e50;
+            border-radius: 60px;
+            padding-right: 20px;
+            color: white;
+            
+           
+        }
+        input::placeholder{
+            color: grey;
+        }
+        #me{
+            width:283px;
+        }
+        .two{
+            background: aqua;
+            width:100px;
+            height: 50px;
+        }
+    
+    </style>
+</head>
+<body>
+      <div class="my">
+    <form class="form">
+        <div class="input">
+            <input type="text"   placeholder="0" class="display" name="answer" id="me" style="text-align: right;" >
+            
+       </div>
+        <br><br>
+        
+     <input type="button"  value="C" onclick="c()">
+     <input type="button" value="0" onclick="insrt(0)">
+     <input type="button" value="Del" onclick="del()">
+       <br><br> 
+        
+     <input type="button" value="1" onclick="insrt(1)">
+     <input type="button" value="2" onclick="insrt(2)">
+     <input type="button" value="3" onclick="insrt(3)">
+               <br><br>
+    <input type="button" value="4" onclick="insrt(4)">
+    <input type="button" value="5" onclick="insrt(5)">
+     <input type="button" value="6" onclick="insrt(6)">
+               <br><br>
+     <input type="button" value="7" onclick="insrt(7)">
+     <input type="button" value="8" onclick="insrt(8)">
+     <input type="button" value="9" onclick="insrt(9)">
+               <br><br>
+     <input type="button" value="+" onclick="insrt('+')">
+    <input type="button" value="-" onclick="insrt('-')">
+      <input id="sqrt" type="button" value="Sqrt" onclick="sqrtt()" >         
+               <br><br>
+         <input type="button" value="." onclick="insrt('.')">
+         <input type="button" value="%" onclick="insrt('%')" >
+         <input type="button" value="Cbrt" onclick="cbrt()">
+        <br><br>
+     <input type="button" value="*" onclick="insrt('*')">
+    <input type="button" value="/" onclick="insrt('/')">
+        <input type="button" value="=" id="eual" onclick="eqll()">
+         
+                
+        </form></div>
+
+    <script>
+      
+      
+    function insrt(num){
+            var a=$('.display').val($('.display').val()+num); 
+          
+      
+        
+    }
+         function eqll(){
+           var c=$('.display').val();
+             if(c.includes('%')==false){
+                 b=$('.display').val(eval($('.display').val()));
+             }
+            else{
+                  var a=$('.display').val();
+           var d=a.length;
+                var x=a.indexOf('%');
+                
+           var b=a.substring(0,x);
+                      var e=b.length;
+                 var c=a.substring(e+1,d);
+                     
+                 var per=(b*c)/100;
+                $('.display').val(per);
+   
+         
+                
+            }
+           }
+        function c(){
+            $('.display').val('');
+           }
+        function del(){
+            value=$('.display').val();
+            $('.display').val(value.substring(0,value.length-1));
+            }
+     
+       function sqrtt(){
+             var value=$('.display').val();
+            var a=Math.sqrt(value);
+            $('.display').val(a);
+            
+        }
+         function cbrt(){
+             var value=$('.display').val();
+            var a=Math.cbrt(value);
+            $('.display').val(a);
+             }
+       
+    
+    </script>
+    </body></html>
